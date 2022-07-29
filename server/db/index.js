@@ -6,15 +6,15 @@ const client = new Client({
   password: '',
   host: process.env.HOST,
   port: process.env.PORT,
-  database: process.env.DBNAME
+  database: process.env.DBNAME,
 });
 
 client.connect((err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log('Connected to MySQL!')
+    console.log('Connected to Database!')
   }
 });
 
-export const client;
+module.exports.client = client;

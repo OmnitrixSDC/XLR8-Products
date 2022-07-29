@@ -52,6 +52,8 @@ CREATE TABLE IF NOT EXISTS related (
   related_product_id INT NOT NULL
 );
 
+CREATE INDEX IF NOT EXISTS idx_product ON product(id);
+
 -- ETL Code
 -- \COPY product FROM 'server/db/csv/product.csv' DELIMITER ',' CSV HEADER;
 -- \COPY features FROM 'server/db/csv/features.csv' DELIMITER ',' CSV HEADER;
