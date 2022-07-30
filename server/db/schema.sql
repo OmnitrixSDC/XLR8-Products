@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS features (
   product_id INT,
   feature TEXT NOT NULL,
   value TEXT NOT NULL,
-  CONSTRAINT fk_features FOREIGN KEY (product_id) REFERENCES product(id)
+  FOREIGN KEY (product_id) REFERENCES product(id)
 );
 
 CREATE TABLE IF NOT EXISTS styles (
@@ -52,7 +52,18 @@ CREATE TABLE IF NOT EXISTS related (
   related_product_id INT NOT NULL
 );
 
+-- DROP INDEX idx_product;
+-- DROP INDEX idx_features;
+-- DROP INDEX idx_styles;
+-- DROP INDEX idx_photos;
+-- DROP INDEX idx_skus;
+-- DROP INDEX idx_related;
 CREATE INDEX IF NOT EXISTS idx_product ON product(id);
+CREATE INDEX IF NOT EXISTS idx_features ON features(product_id);
+CREATE INDEX IF NOT EXISTS idx_styles ON styles(productId);
+CREATE INDEX IF NOT EXISTS idx_photos ON photos(styleId);
+CREATE INDEX IF NOT EXISTS idx_skus ON skus(styleId);
+CREATE INDEX IF NOT EXISTS idx_related ON related(current_product_id);
 
 -- ETL Code
 -- \COPY product FROM 'server/db/csv/product.csv' DELIMITER ',' CSV HEADER;
