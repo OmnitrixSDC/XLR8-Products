@@ -5,7 +5,7 @@ module.exports.getAllProducts = (page, count) => {
   const higherLimit = page * count;
 
   const string = {
-    text: "EXPLAIN ANALYZE SELECT id AS id, name, slogan, description, category, default_price FROM product WHERE id BETWEEN $1 AND $2",
+    text: "SELECT id AS id, name, slogan, description, category, default_price FROM product WHERE id BETWEEN $1 AND $2",
     values: [lowerLimit, higherLimit],
   }
 
@@ -15,7 +15,7 @@ module.exports.getAllProducts = (page, count) => {
 
 module.exports.getProductInfo = (productId) => {
   const string = {
-    text: "EXPLAIN ANALYZE SELECT id AS id, name, slogan, description, category, default_price,\
+    text: "SELECT id AS id, name, slogan, description, category, default_price,\
       (SELECT json_agg(\
         json_build_object(\
           'feature', feature, 'value', value\
@@ -31,8 +31,7 @@ module.exports.getProductInfo = (productId) => {
 
 module.exports.getStyles = (productId) => {
   const string = {
-    text: "EXPLAIN ANALYZE SELECT id,\
-      (SELECT json_agg(\
+    text: "SELECT id, (SELECT json_agg(\
         json_build_object('style_id', styles.id, 'name', styles.name,\
       'original_price', styles.original_price, 'sale_price', styles.sale_price, 'default?', styles.default_style,\
       'photos', (SELECT json_agg(json_build_object('thumbnail_url', photos.thumbnail_url, 'url', photos.url))\
@@ -49,7 +48,7 @@ module.exports.getStyles = (productId) => {
 
 module.exports.getRelated = (productId) => {
   const string = {
-    text: "EXPLAIN ANALYZE SELECT json_agg(related_product_id) FROM related WHERE current_product_id = $1 AND related_product_id != 0",
+    text: "SELECT related_product_id FROM related WHERE current_product_id = $1 AND related_product_id != 0",
     values: [productId],
   }
 

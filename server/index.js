@@ -1,12 +1,10 @@
 const express = require('express');
-const morgan = require('morgan');
 const cors = require('cors');
 const db = require('./controllers/index.js');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
-app.use(morgan('dev'));
 app.use(express.json());
 
 app.get('/products', async (req, res) => {
