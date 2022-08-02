@@ -3,23 +3,25 @@ import { check, sleep } from 'k6';
 
 export const options = {
   discardResponseBodies: true,
+  insecureSkipTLSVerify: true,
+  noConnectionReuse: false,
   scenarios: {
-    contacts: {
+    constant_request_rate: {
       executor: 'constant-arrival-rate',
-      rate: 10000,
+      rate: '300',
       timeUnit: '1s',
-      duration: '10s',
-      preAllocatedVUs: 1,
-      maxVUs: 1,
+      duration: '60s',
+      preAllocatedVUs: 20,
+      maxVUs: 200
     }
   }
 };
 
 export default function () {
-    const res = http.get('http://localhost:8120/products?page=200000&count=5');
+    // const res = http.get('http://localhost:8120/products?page=200000&count=5');
     // const res = http.get('http://localhost:8120/products/1000000');
     // const res = http.get('http://localhost:8120/products/1000000/styles');
-    // const res = http.get('http://localhost:8120/products/1000000/related');
+    const res = http.get('http://localhost:8120/products/1000000/related');
     check(res, { 'status was 200': (r) => r.status == 200 });
     sleep(1);
-}
+};

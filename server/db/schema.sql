@@ -1,5 +1,5 @@
 -- DB Create/Drop/Connect
--- DROP DATABASE IF EXISTS products;
+-- DROP DATABASE products;
 -- CREATE DATABASE products;
 -- \c products;
 
