@@ -48,7 +48,7 @@ module.exports.getStyles = (productId) => {
 
 module.exports.getRelated = (productId) => {
   const string = {
-    text: "SELECT related_product_id FROM related WHERE current_product_id = $1 AND related_product_id != 0",
+    text: "SELECT json_agg(related_product_id) FROM related WHERE current_product_id = $1 AND related_product_id != 0",
     values: [productId],
   }
 

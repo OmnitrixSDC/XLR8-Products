@@ -36,7 +36,7 @@ app.get('/products/:product_id/related', async (req, res) => {
   const productId = req.params.product_id;
 
   await db.getRelated(productId)
-    .then(result => res.send(result.rows))
+    .then(result => res.send(result.rows[0].json_agg))
     .catch(err => res.sendStatus(500));
 });
 
