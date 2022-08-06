@@ -1,5 +1,5 @@
 # XLR8-Products <img src="https://img.shields.io/badge/-XLR8-blue?style=for-the-badge" align="center"/>
-An accelerated Back-End API framework for product data, to enhance user experience for the Tetlier e-commerce shop.
+An accelerated Back-End RESTful API framework for product data, to enhance user experience for the Tetlier e-commerce shop.
 
 ## Accomplisments
 These were accomplished using 4 AWS instances; 3 t2.micros and 1 Debian. <br />
