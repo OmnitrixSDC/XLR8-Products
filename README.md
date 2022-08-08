@@ -3,7 +3,7 @@ An accelerated Back-End RESTful API framework for product data, to enhance user 
 
 ## Accomplisments
 These were accomplished using 4 AWS instances; 3 t2.micros and 1 Debian. <br />
-- Provided low latency requests (61ms) with 0.0% error rate to deliver a reliable API on the Products Microservice.
+- Provided low latency requests (<70ms) with 0.0% error rate to deliver a reliable API on the Products Microservice.
 - Stress tested each endpoint of the microservice and achieved 6.5k Requests Per Second with a 0.0% error rate.
 - Used k6 and loader.io to identify bottlenecking.
 - Used NGINX for load balancing and caching.
