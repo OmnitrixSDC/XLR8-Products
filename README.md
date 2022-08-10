@@ -20,7 +20,7 @@ These were accomplished using 4 AWS instances; 3 t2.micros and 1 Debian. <br />
 ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ## Creator - Bruce Rabago
-### <a href="https://www.linkedin.com/in/bruce-diesel-rabago-b5b519180">
+### <a href="https://www.linkedin.com/in/bruce-diesel-rabago">
   <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a> <a href="https://github.com/BungaloBuce">
   <img src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
